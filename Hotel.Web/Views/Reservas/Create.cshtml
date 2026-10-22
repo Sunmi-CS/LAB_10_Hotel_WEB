@@ -41,7 +41,21 @@
         <input asp-for="FechaSalida" type="date" class="form-control" />
         <span asp-validation-for="FechaSalida" class="text-danger"></span>
     </div>
+<div class="mb-3">
+    <label asp-for="Observaciones" class="form-label">
+        Observaciones
+    </label>
 
+    <textarea asp-for="Observaciones"
+              class="form-control"
+              maxlength="200"
+              rows="3"
+              placeholder="Ingrese alguna observación (opcional)">
+    </textarea>
+
+    <span asp-validation-for="Observaciones"
+          class="text-danger"></span>
+</div>
     <button type="submit" class="btn btn-primary">Guardar reserva</button>
     <a asp-action="Index" class="btn btn-secondary">Volver</a>
 </form>
