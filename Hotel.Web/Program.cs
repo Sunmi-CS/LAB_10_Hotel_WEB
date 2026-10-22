@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Hotel.Web.Models;
 using Hotel.Web.Repositorios;
-using Hotel.Web.Repositorios;
 
 var builder = WebApplication.CreateBuilder(args);
 

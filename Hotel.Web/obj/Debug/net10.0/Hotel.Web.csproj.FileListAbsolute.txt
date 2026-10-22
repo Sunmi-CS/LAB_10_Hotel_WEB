@@ -229,3 +229,4 @@ C:\Sunmi_Casano_Suarez_Carpeta\CURSOS_DE_6_CICLO\Curso_DESARROLLO_APP_EMPRESARIA
 C:\Sunmi_Casano_Suarez_Carpeta\CURSOS_DE_6_CICLO\Curso_DESARROLLO_APP_EMPRESARIALES_A\LAB_10\Hotel.Web\bin\Debug\net10.0\runtimes\win-x86\native\msalruntime_x86.dll
 C:\Sunmi_Casano_Suarez_Carpeta\CURSOS_DE_6_CICLO\Curso_DESARROLLO_APP_EMPRESARIALES_A\LAB_10\Hotel.Web\obj\Debug\net10.0\Hotel.Web.csproj.AssemblyReference.cache
 C:\Sunmi_Casano_Suarez_Carpeta\CURSOS_DE_6_CICLO\Curso_DESARROLLO_APP_EMPRESARIALES_A\LAB_10\Hotel.Web\obj\Debug\net10.0\Hotel.Web.csproj.Up2Date
+C:\Sunmi_Casano_Suarez_Carpeta\CURSOS_DE_6_CICLO\Curso_DESARROLLO_APP_EMPRESARIALES_A\LAB_10\Hotel.Web\obj\Debug\net10.0\Hotel.Web.sourcelink.json
