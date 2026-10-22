@@ -1,0 +1,205 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Hotel.Web</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Hotel.Web.styles.css" asp-append-version="true" />
+
+    <style>
+        body {
+            background-color: #f5f7fb;
+            color: #243247;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hotel-navbar {
+            background: linear-gradient(120deg, #142d4e, #234e70);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .hotel-brand {
+            color: #fff !important;
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: .3px;
+        }
+
+        .hotel-brand span {
+            color: #a9d8f5;
+        }
+
+        .hotel-navbar .nav-link {
+            color: rgba(255, 255, 255, .82) !important;
+            font-weight: 500;
+            padding: .65rem .9rem !important;
+            border-radius: .5rem;
+            transition: background-color .2s, color .2s;
+        }
+
+        .hotel-navbar .nav-link:hover,
+        .hotel-navbar .nav-link:focus {
+            color: #fff !important;
+            background-color: rgba(255, 255, 255, .12);
+        }
+
+        .hotel-navbar .navbar-toggler {
+            border-color: rgba(255, 255, 255, .4);
+        }
+
+        .hotel-navbar .navbar-toggler-icon {
+            filter: brightness(0) invert(1);
+        }
+
+        .btn-hotel {
+            background-color: #fff;
+            color: #183b5b;
+            border: none;
+            border-radius: .6rem;
+            padding: .65rem 1rem;
+            font-weight: 600;
+        }
+
+        .btn-hotel:hover {
+            background-color: #e5f2fb;
+            color: #142d4e;
+        }
+
+        main {
+            flex: 1;
+            padding-top: 1.75rem;
+            padding-bottom: 2.5rem;
+        }
+
+        .hotel-footer {
+            background-color: #fff;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+            padding: 1.25rem 0;
+            margin-top: auto;
+        }
+
+        .hotel-footer a {
+            color: #285b78;
+            text-decoration: none;
+        }
+
+        .hotel-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg hotel-navbar">
+            <div class="container">
+
+                <a class="navbar-brand hotel-brand"
+                   asp-controller="Home"
+                   asp-action="Index">
+                    Hotel<span>.Web</span>
+                </a>
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#hotelNavbar"
+                        aria-controls="hotelNavbar"
+                        aria-expanded="false"
+                        aria-label="Abrir menú de navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="hotelNavbar">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Index">
+                                Inicio
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Habitaciones"
+                               asp-action="Index">
+                                Habitaciones
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Reservas"
+                               asp-action="Disponibles">
+                                Disponibilidad
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Reservas"
+                               asp-action="Index">
+                                Reservas
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Privacy">
+                                Privacidad
+                            </a>
+                        </li>
+
+                        <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                            <a class="btn btn-hotel"
+                               asp-controller="Reservas"
+                               asp-action="Create">
+                                + Nueva reserva
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="container">
+        @RenderBody()
+    </main>
+
+    <footer class="hotel-footer">
+        <div class="container d-flex flex-column flex-md-row
+                    justify-content-between align-items-center gap-2">
+            <div>
+                <strong class="text-dark">Hotel.Web</strong>
+                <span class="ms-2">Sistema de gestión hotelera</span>
+            </div>
+
+            <div>
+                &copy; @DateTime.Now.Year Hotel.Web
+                <span class="mx-2">|</span>
+                <a asp-controller="Home" asp-action="Privacy">
+                    Política de privacidad
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

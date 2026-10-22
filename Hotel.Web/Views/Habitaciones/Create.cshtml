@@ -1,0 +1,41 @@
+
+@model Hotel.Web.Models.Habitacion
+
+@{
+    ViewData["Title"] = "Registrar habitación";
+}
+
+<h1>Registrar habitación</h1>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Numero" class="form-label">Número</label>
+        <input asp-for="Numero" class="form-control" />
+        <span asp-validation-for="Numero" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Piso" class="form-label">Piso</label>
+        <input asp-for="Piso" type="number" min="1" class="form-control" />
+        <span asp-validation-for="Piso" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="IdTipoHabitacion" class="form-label">Tipo de habitación</label>
+        <select asp-for="IdTipoHabitacion"
+                asp-items="ViewBag.IdTipoHabitacion"
+                class="form-select">
+            <option value="">Seleccione un tipo</option>
+        </select>
+        <span asp-validation-for="IdTipoHabitacion" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

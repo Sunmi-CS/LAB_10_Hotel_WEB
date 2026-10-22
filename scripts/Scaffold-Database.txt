@@ -1,0 +1,7 @@
+dotnet ef dbcontext scaffold 
+
+"Server=DESKTOP-5RMNQ7V\SQLEXPRESS;Database=HotelDB;Trusted_Connection=True;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models --context HotelContext --no-onconfiguring
+
+Descripción: Se utilizó el comando dotnet ef dbcontext scaffold para generar las clases de entidades (Habitacion, Huesped, Reserva y TipoHabitacion)
+y el contexto HotelContext a partir de la base de datos existente HotelDB, utilizando Entity Framework Core Database First. 
+La opción --output-dir Models especifica la carpeta de salida, --context HotelContext establece el nombre del contexto y --no-onconfiguring evita generar la configuración de conexión dentro del contexto.

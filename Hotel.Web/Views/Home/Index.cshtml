@@ -1,0 +1,165 @@
+﻿
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="container py-4">
+
+    <!-- Portada principal -->
+    <div class="p-5 mb-4 rounded-4 text-white shadow"
+         style="background: linear-gradient(135deg, #142d4e, #285b78);">
+
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <span class="badge bg-light text-dark mb-3">
+                    SISTEMA DE GESTIÓN HOTELERA
+                </span>
+
+                <h1 class="display-4 fw-bold">
+                    Bienvenido a Hotel.Web
+                </h1>
+
+                <p class="fs-5 mt-3">
+                    Administra habitaciones, consulta disponibilidad
+                    y gestiona las reservas de tus huéspedes desde un solo lugar.
+                </p>
+
+                <div class="mt-4 d-flex flex-wrap gap-2">
+                    <a asp-controller="Reservas"
+                       asp-action="Create"
+                       class="btn btn-light btn-lg fw-semibold">
+                        + Nueva reserva
+                    </a>
+
+                    <a asp-controller="Reservas"
+                       asp-action="Disponibles"
+                       class="btn btn-outline-light btn-lg">
+                        Consultar disponibilidad
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 text-center mt-4 mt-lg-0">
+                <div style="font-size: 100px; line-height: 1.2;">
+                    🏨
+                </div>
+                <p class="mb-0 text-white-50">
+                    Tu estancia comienza aquí
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accesos rápidos -->
+    <div class="mb-4">
+        <h2 class="h3 fw-bold">Panel de administración</h2>
+        <p class="text-muted">
+            Selecciona una opción para comenzar a trabajar.
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Habitaciones -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm rounded-4">
+                <div class="card-body p-4">
+                    <div class="rounded-3 bg-primary-subtle text-primary
+                                d-flex align-items-center justify-content-center mb-3"
+                         style="width: 60px; height: 60px; font-size: 30px;">
+                        🛏️
+                    </div>
+
+                    <h3 class="h5 fw-bold">Habitaciones</h3>
+
+                    <p class="text-muted">
+                        Consulta las habitaciones, revisa sus tipos y precios,
+                        registra nuevas habitaciones o desactiva las existentes.
+                    </p>
+
+                    <a asp-controller="Habitaciones"
+                       asp-action="Index"
+                       class="btn btn-outline-primary">
+                        Gestionar habitaciones →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disponibilidad -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm rounded-4">
+                <div class="card-body p-4">
+                    <div class="rounded-3 bg-success-subtle text-success
+                                d-flex align-items-center justify-content-center mb-3"
+                         style="width: 60px; height: 60px; font-size: 30px;">
+                        📅
+                    </div>
+
+                    <h3 class="h5 fw-bold">Disponibilidad</h3>
+
+                    <p class="text-muted">
+                        Busca habitaciones libres por fecha de ingreso y salida.
+                        Consulta las noches y el precio estimado de la estancia.
+                    </p>
+
+                    <a asp-controller="Reservas"
+                       asp-action="Disponibles"
+                       class="btn btn-outline-success">
+                        Buscar habitaciones →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reservas -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm rounded-4">
+                <div class="card-body p-4">
+                    <div class="rounded-3 bg-warning-subtle text-warning
+                                d-flex align-items-center justify-content-center mb-3"
+                         style="width: 60px; height: 60px; font-size: 30px;">
+                        📋
+                    </div>
+
+                    <h3 class="h5 fw-bold">Reservas</h3>
+
+                    <p class="text-muted">
+                        Registra nuevas reservas, consulta sus estados
+                        y cancela aquellas que todavía lo permitan.
+                    </p>
+
+                    <a asp-controller="Reservas"
+                       asp-action="Index"
+                       class="btn btn-outline-warning">
+                        Gestionar reservas →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Información inferior -->
+    <div class="mt-5 p-4 bg-light rounded-4 border">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h3 class="h5 fw-bold mb-2">
+                    Una gestión sencilla y organizada
+                </h3>
+
+                <p class="text-muted mb-md-0">
+                    Sistema desarrollado con ASP.NET Core MVC,
+                    Entity Framework Core y SQL Server.
+                </p>
+            </div>
+
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                <span class="badge rounded-pill bg-primary px-3 py-2">
+                    Hotel.Web · Semana 10
+                </span>
+            </div>
+        </div>
+    </div>
+
+</div>
