@@ -86,6 +86,11 @@ public class ReservasController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(Reserva reserva)
     {
+            ModelState.Remove(nameof(Reserva.IdHuespedNavigation));
+            ModelState.Remove(nameof(Reserva.IdHabitacionNavigation));
+            ModelState.Remove(nameof(Reserva.Estado));
+
+
         var hoy = DateOnly.FromDateTime(DateTime.Today);
 
         if (reserva.FechaIngreso < hoy)

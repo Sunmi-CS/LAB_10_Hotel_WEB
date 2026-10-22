@@ -50,32 +50,33 @@ public class HabitacionesController : Controller
     }
 
     // POST: /Habitaciones/Create
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(Habitacion habitacion)
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> Create(Habitacion habitacion)
+{
+    ModelState.Remove(nameof(Habitacion.IdTipoHabitacionNavigation));
+
+    if (await _repositorio.ExisteNumeroAsync(habitacion.Numero))
     {
-        if (await _repositorio.ExisteNumeroAsync(habitacion.Numero))
-        {
-            ModelState.AddModelError(
-                nameof(habitacion.Numero),
-                "Ya existe una habitación con ese número.");
-        }
-
-        if (!ModelState.IsValid)
-        {
-            await CargarTiposAsync(habitacion.IdTipoHabitacion);
-            return View(habitacion);
-        }
-
-        habitacion.Activo = true;
-
-        await _repositorio.CrearAsync(habitacion);
-
-        TempData["Mensaje"] = "La habitación se registró correctamente.";
-
-        return RedirectToAction(nameof(Index));
+        ModelState.AddModelError(
+            nameof(habitacion.Numero),
+            "Ya existe una habitación con ese número.");
     }
 
+    if (!ModelState.IsValid)
+    {
+        await CargarTiposAsync(habitacion.IdTipoHabitacion);
+        return View(habitacion);
+    }
+
+    habitacion.Activo = true;
+
+    await _repositorio.CrearAsync(habitacion);
+
+    TempData["Mensaje"] = "La habitación se registró correctamente.";
+
+    return RedirectToAction(nameof(Index));
+}
     // GET: /Habitaciones/Edit/5
     public async Task<IActionResult> Edit(int? id)
     {
@@ -97,6 +98,8 @@ public class HabitacionesController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, Habitacion habitacion)
     {
+        ModelState.Remove(nameof(Habitacion.IdTipoHabitacionNavigation));
+        
         if (id != habitacion.IdHabitacion)
             return NotFound();
 
